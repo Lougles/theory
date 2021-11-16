@@ -260,3 +260,340 @@ console.log(Math.pow(2, 4)); // 16
 // Math.random() - возвращает псевдослучайное число в диапазоне [0, 1)
 console.log(Math.random()); // случайное число между 0 и 1
 console.log(Math.random() * (10 - 1) + 1); // случайное число от 1 до 10
+
+console.log("==========Конкатенация строк==========");
+
+const messages = "Mango " + "is" + " happy";
+console.log(message); // Mango is happy
+
+// Теперь посмотрим на порядок операндов
+let result;
+
+result = 5 + "5";
+console.log(result); // '55'
+console.log(typeof result); // string
+
+result = 5 + "5" + 5;
+console.log(result); // '555'
+console.log(typeof result); // string
+
+/*
+ * Обратите внимание, произошла математическая операция
+ * сложения для первых двух пятерок, после чего 10 было
+ * преобразовано в строку '10' и сшито с '5'
+ */
+result = 5 + 5 + "5";
+console.log(result); // '105'
+console.log(typeof result); // string
+
+console.log("==========Свойства и методы строк==========");
+
+const messageString = "Welcome to Bahamas!";
+
+console.log(message.length); // 19
+console.log("There is nothing impossible to him who will try".length); // 47
+
+console.log(message.toLowerCase()); // welcome to bahamas!
+console.log(message.toUpperCase()); // WELCOME TO BAHAMAS!
+
+// При этом исходная строка не изменяется
+console.log(message); // Welcome to Bahamas!
+
+console.log(message.indexOf("to")); // 8
+console.log(message.indexOf("hello")); // -1
+
+// Все методы строк чувствительны к регистру
+console.log(message.includes("welcome")); // false
+console.log(message.includes("Welcome")); // true
+
+console.log("==========Шаблонные строки и интерполяция==========");
+// Используя переменные необходимо составить строку с подставленными значениями
+const nameInterpol = "Mango";
+const ageInterpol = 2;
+const mood = "happy";
+
+const messageInterpol =
+  "My name is " +
+  nameInterpol +
+  ", I'm " +
+  ageInterpol +
+  " years old and " +
+  mood +
+  ".";
+
+console.log(messageInterpol); // My name is Mango, I'm 2 years old and happy.
+
+/*
+ * Составлять строки с подставляемыми значениями
+ * используя конкатенацию очень неудобно.
+ * На помощь приходят шаблонные строки и интерполяция.
+ */
+const sameMessage = `My name is ${nameInterpol}, I'm ${ageInterpol} years old and ${mood}.`;
+
+console.log(sameMessage); // My name is Mango, I'm 2 years old and happy.
+
+// В интерполяции можно использовать любое валидное выражение
+console.log(`Результат сложения равен ${2 + 2}.`); // Результат сложения равен 4.
+
+console.log("==========Логическое «И»==========");
+const numI = 20;
+const resultInterpol = numI > 10 && numI < 30;
+console.log(resultInterpol); // true
+
+const numU = 40;
+const resultU = numU > 10 && numU < 30;
+console.log(resultU); // false
+
+console.log("==========Логическое «ИЛИ»==========");
+const numA = 5;
+const resultA = numA < 10 || numA > 30;
+console.log(resultA); // true
+
+const numB = 40;
+const resultB = numB < 10 || numB > 30;
+console.log(resultB); // true
+
+const numC = 20;
+const resultC = numC < 10 || numC > 30;
+console.log(resultC); // false
+
+console.log("==========Логическое «НЕ»==========");
+
+console.log(!true); // false
+console.log(!false); // true
+console.log(!1); // false
+console.log(!0); // true
+
+console.log("==========Инструкция if==========");
+let cost = 0;
+const subscription = "pro";
+
+if (subscription === "pro") {
+  cost = 100;
+}
+
+console.log(cost); // 100
+
+let costA = 0;
+const subscriptionA = "free";
+
+if (subscriptionA === "pro") {
+  costA = 100;
+}
+
+console.log(costA); // 0
+
+console.log("==========Инструкция if...else==========");
+let costB;
+const subscriptionB = "free";
+
+if (subscriptionB === "pro") {
+  costB = 100;
+} else {
+  costB = 0;
+}
+
+console.log(costB); // 0
+
+let costC;
+const subscriptionC = "pro";
+
+if (subscriptionC === "pro") {
+  costC = 100;
+} else {
+  costC = 0;
+}
+
+console.log(costC); // 100
+
+console.log("==========Инструкция else...if==========");
+let costD;
+const subscriptionD = "premium";
+
+if (subscriptionD === "free") {
+  costD = 0;
+} else if (subscriptionD === "pro") {
+  costD = 100;
+} else if (subscriptionD === "premium") {
+  costD = 500;
+} else {
+  console.log("Invalid subscription type");
+}
+
+console.log(costD); // 500
+
+console.log("==========Тернарный оператор==========");
+let type;
+const ageA = 20;
+
+if (age >= 18) {
+  type = "adult";
+} else {
+  type = "child";
+}
+
+const ages = 20;
+const types = ages >= 18 ? "adult" : "child";
+
+const num1 = 5;
+const num2 = 10;
+let biggerNumber;
+
+if (num1 > num2) {
+  biggerNumber = num1;
+} else {
+  biggerNumber = num2;
+}
+
+console.log(biggerNumber); // 10
+
+const num11 = 5;
+const num22 = 10;
+const biggerNumber1122 = num11 > num22 ? num11 : num22;
+
+console.log(biggerNumber); // 10
+
+console.log("==========Инструкция switch==========");
+let costF;
+const subscriptionF = "premium";
+
+switch (subscriptionF) {
+  case "free":
+    costF = 0;
+    break;
+
+  case "pro":
+    costF = 100;
+    break;
+
+  case "premium":
+    costF = 500;
+    break;
+
+  default:
+    console.log("Invalid subscription type");
+}
+
+console.log(costF); // 500
+
+console.log("==========Область видимости==========");
+const valuez = 5;
+
+if (true) {
+  console.log("Block scope: ", valuez); // 5
+}
+
+console.log("Global scope: ", valuez); // 5
+
+if (true) {
+  const valueA = 5;
+  console.log("Block scope: ", valueA); // 5
+}
+
+console.log("Global scope: ", valueA); // ReferenceError: value is not defined
+
+const global = "global";
+
+if (true) {
+  const blockA = "block A";
+
+  // Видим глобальную + локальную A
+  console.log(global); // 'global'
+  console.log(blockA); // block A
+
+  /*
+   * Переменные blockB и blockC не найдены в доступных областях видимости.
+   * Будет ошибка обращения к переменной.
+   */
+  // console.log(blockB); // ReferenceError: blockB is not defined
+  // console.log(blockC); // ReferenceError: blockC is not defined
+
+  if (true) {
+    const blockB = "block B";
+
+    // Видим глобальную + внешнюю A + локальную B
+    console.log(global); // global
+    console.log(blockA); // block A
+    console.log(blockB); // block B
+
+    /*
+     * Переменная blockC не найдена в доступных областях видимости.
+     * Будет ошибка обращения к переменной.
+     */
+    // console.log(blockC); // ReferenceError: blockC is not defined
+  }
+}
+
+if (true) {
+  const blockC = "block C";
+
+  // Видим глобальную + локальную C
+  console.log(global); // global
+  console.log(blockC); // block C
+
+  /*
+   * Переменные blockA и blockB не найдены в доступных областях видимости.
+   * Будет ошибка обращения к переменной.
+   */
+  // console.log(blockA); // ReferenceError: blockA is not defined
+  // console.log(blockB); // ReferenceError: blockB is not defined
+}
+
+// Видим только глобальную
+console.log(global); // global
+
+/*
+ * Переменные blockA, blockB и blockC не найдены в доступных областях видимости.
+ * Будет ошибка обращения к переменной.
+ */
+// console.log(blockA); // ReferenceError: blockA is not defined
+// console.log(blockB); // ReferenceError: blockB is not defined
+// console.log(blockC); // ReferenceError: blockC is not defined
+
+console.log("==========Цикл while==========");
+let clientCounter = 18;
+const maxClients = 25;
+
+while (clientCounter < maxClients) {
+  console.log(clientCounter);
+  clientCounter += 1;
+}
+console.log("==========Цикл do...while==========");
+let password = "";
+
+do {
+  password = prompt("Введите пароль длиннее 4-х символов", "");
+} while (password.length < 5);
+
+console.log("Ввели пароль: ", password);
+
+console.log("==========Цикл for==========");
+const max = 10;
+
+for (let i = 0; i < max; i += 1) {
+  console.log(`${max} % ${i} = `, max % i);
+}
+
+console.log("==========Инструкции break и continue==========");
+
+for (let i = 0; i < 10; i += 1) {
+  if (i === 5) {
+    console.log("Дошли до 5-й итерации, прерываем цикл!");
+    break;
+  }
+}
+
+/*
+ * Используем цикл для вывода только нечетных чисел.
+ * Для чётных i срабатывает continue, выполнение тела прекращается
+ * и управление передаётся на следующую итерацию.
+ */
+const number = 10;
+
+for (let i = 0; i < number; i += 1) {
+  if (i % 2 === 0) {
+    continue;
+  }
+
+  console.log("Нечетное i: ", i); // 1, 3, 5, 7, 9
+}
