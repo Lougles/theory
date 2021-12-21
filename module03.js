@@ -207,9 +207,9 @@ const [red, green, blue, alfa = 0.3] = rgb;
 console.log(`Red: ${red}, Green: ${green}, Blue: ${blue}, Alfa: ${alfa}`);
 // Red: 200, Green: 100, Blue: 255, Alfa: 0.3
 
-const rgb = [200, 255, 100];
+const rgbF = [200, 255, 100];
 
-const [red, ...colors] = rgb;
+const [redA, ...colors] = rgb;
 
 console.log(`Red: ${red}, Colors: ${colors}`);
 // Red: 200, Colors: [255, 100]
