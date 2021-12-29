@@ -306,3 +306,37 @@ class Calc {
 console.log(Calc.PI); // 3.14
 console.log(Calc.add(2, 3, 4)); // 9
 console.log(Calc.mult(12, 3, 4)); // 144
+
+console.log("Наследование");
+class Animal {
+  constructor(name) {
+    this.name = name;
+  }
+
+  move() {
+    console.log(`I, ${this.name}, am moving!`);
+  }
+}
+
+class Dog extends Animal {
+  constructor(name, breed) {
+    // Вызвать конструктор Animal с аргументом name
+    super(name);
+    this.breed = breed;
+  }
+
+  bark() {
+    console.log("myaw!");
+  }
+
+  moveAndMakeSound() {
+    super.move();
+    this.bark();
+  }
+}
+
+const cat = new Dog("Mango", "shepherd");
+
+cat.move(); // I, Mango, am moving!
+cat.bark(); // myaw!
+cat.moveAndMakeSound(); // I, Mango, am moving! woof!
